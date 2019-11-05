@@ -1,6 +1,20 @@
 #!/usr/bin/env ruby
-
 require 'optparse'
+
+def command?(name)
+    `which #{name}`
+    $?.success?
+end
+
+unless command?('xcodegen')
+    p "Installing xcodegen ..."
+    system("HOMEBREW_NO_AUTO_UPDATE=1 brew install xcodegen")
+end
+
+unless command?('pod')
+    p "Installing cocoapods"
+    system("sudo gem install cocoapods")
+end
 
 options = {}
 OptionParser.new do |opt|
