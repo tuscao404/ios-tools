@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'EmptyApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for EmptyApp
+
+end
+
+post_install do |installer_representation|
+  installer_representation.pods_project.targets.each do |target|
+    if target != "Pods-EmptyApp"
+      system("cp -r Pods/#{target} ../output")
+    end
+  end
+end

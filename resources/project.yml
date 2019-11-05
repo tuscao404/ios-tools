@@ -1,0 +1,15 @@
+name: EmptyApp
+options:
+  bundleIdPrefix: com.emptyapp
+targets:
+  EmptyApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "10.0"
+    sources: [EmptyApp]
+    settings:
+      configs:
+        debug:
+          CUSTOM_BUILD_SETTING: debug
+        release:
+          CUSTOM_BUILD_SETTING: release
